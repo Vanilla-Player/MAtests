@@ -1,12 +1,12 @@
-## Jest Nodejs Supertest
+## Test hechos en clase
 
-Simple example of Testing a Nodejs express REST API using Jest and Supertest.
+Este repo contiene los test que realizamos en clase, como parte tecnica
 
 ### Installation
 
 ```
-git clone https://github.com/FaztWeb/nodejs-jest-supertest
-cd nodejs-jest-supertest
+git clone https://github.com/Vanilla-Player/MAtests.git
+cd MAtests
 npm install
 ```
 
@@ -14,4 +14,13 @@ npm install
 
 ```
 npm test
+```
+### clase{n}
+```
+Contiene lo que se testeo en la clase numero n
+```
+### Consigna
+
+```
+https://docs.google.com/presentation/d/1BrgjXk_dgIgu7FfEyhvNmP7ILq7hX1banopaSiEePj8/edit#slide=id.p
 ```
