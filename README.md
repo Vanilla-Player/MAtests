@@ -13,7 +13,7 @@ npm install
 ### Test
 
 ```
-npm test
+npm test ahorcado
 ```
 ### clase{n}
 ```
