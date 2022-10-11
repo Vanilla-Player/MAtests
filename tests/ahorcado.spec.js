@@ -18,8 +18,8 @@ import JuegoAhorcado from "../ahorcado/ahorcado.js";
 
     test("Ingresar palabra correcta",()=>{
 
-        const intentoPalabra = "Manteca";
-        const valido = juego.compararIntento(intentoPalabra);
+        const intentoPalabra = "manteca";
+        const valido = juego.arriesgarPalabra(intentoPalabra);
 
 
         expect(valido).toBeTruthy();
@@ -29,7 +29,7 @@ import JuegoAhorcado from "../ahorcado/ahorcado.js";
     test("Ingresar palabra incorrecta",()=>{
 
         const intentoPalabra = "keso";
-        const valido = juego.compararIntento(intentoPalabra);
+        const valido = juego.arriesgarPalabra(intentoPalabra);
 
         expect(valido).toBeFalsy();
         
@@ -72,5 +72,22 @@ import JuegoAhorcado from "../ahorcado/ahorcado.js";
         
         expect(posiciones).toEqual([1,6])
     })
+
+    test("Devolver vida restante del usuario", () => {
+        let vidas = juego.vidas;
+        
+        
+        expect(vidas).toEqual(3)
+    })
+
+    test('Usuario pueda conocer el estado de la partida', () => {
+      
+        let estado = juego.estadoActual;
+
+        expect(estado).toBeDefined();
+
+    })
+    
+
 
  })
