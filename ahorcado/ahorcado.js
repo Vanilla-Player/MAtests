@@ -3,7 +3,11 @@ class JuegoAhorcado{
     constructor (params) {
         this.palabraAdivinar = "manteca";
         this.vidas = 3;
-        this.historial = [];
+        this.estado = {
+            letrasJugadas: [],
+            letrasIncorrectas: [],
+            letrasCorrectas: [],
+        };
     }
 
 
@@ -16,18 +20,47 @@ class JuegoAhorcado{
     }
 
     get estadoActual() {
-        return null;
+        return this.estado;
+    }
+
+    inicializarEstado() {
+        this.palabraAdivinar.split("").map((letra) => {
+            this.estado.letrasCorrectas.push("_");
+        })
     }
 
     
     arriegarLetra(letraIngresada) {
-        return this.palabraAdivinar.includes(letraIngresada.toLowerCase())
+        let letra = letraIngresada.toLowerCase();
+        
+        this.estado.letrasJugadas.push(letra);
+        
+        if (!this.contieneLetra(letra))
+        {
+            this.estado.letrasIncorrectas.push(letra)
+        }
+
+        this.remplazarLetraEnPalabraCorrecta(letra);
+
     }
 
     arriesgarPalabra(palabraIngresada){
         return this.palabraAdivinar === palabraIngresada.toLowerCase()
     }
 
+    contieneLetra(letra) {
+        return this.palabraAdivinar.includes(letra);
+    }
+
+    remplazarLetraEnPalabraCorrecta(letra)
+    {
+        // Metodo el que reemplaza los guiones de la palabra en el caso que sea correcta
+        let indexs = this.compararLetra(letra);
+
+        indexs.map( (pos) => {
+            this.estado.letrasCorrectas[pos] = letra;
+        })
+    }
     
     compararLetra(letraIngresada){
         

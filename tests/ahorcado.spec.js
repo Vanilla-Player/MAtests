@@ -7,6 +7,7 @@ import JuegoAhorcado from "../ahorcado/ahorcado.js";
 
     beforeEach(() => {
         juego = new JuegoAhorcado();
+        juego.inicializarEstado();
       });
 
     test("Validar que se cree una palabra", ()=>{
@@ -80,14 +81,49 @@ import JuegoAhorcado from "../ahorcado/ahorcado.js";
         expect(vidas).toEqual(3)
     })
 
-    test('Usuario pueda conocer el estado de la partida', () => {
+    test('Usuario pueda consultar estado de la partida', () => {
       
         let estado = juego.estadoActual;
 
         expect(estado).toBeDefined();
 
     })
+
+
+    test('El estado debe contener las letras jugadas hasta el momento', ()=>{
+
+        juego.arriegarLetra("a");
+        juego.arriegarLetra("b");
+        juego.arriegarLetra("c");
+        
+        let estado = juego.estadoActual;
+        let letrasJugadas = estado.letrasJugadas;
+
+        expect(letrasJugadas).toEqual(["a","b","c"])
+    })
     
+    test('El estado contiene las letras correctas jugadas en su posicion', ()=>{
+
+
+        juego.arriegarLetra("a");
+
+        let estado = juego.estadoActual;
+        let letrasCorrectas = estado.letrasCorrectas;
+
+        expect(letrasCorrectas).toEqual(["_","a","_","_","_","_","a"])
+
+    })
+
+    test('El estado contiene las letras incorrectas jugadas', ()=>{
+
+
+        juego.arriegarLetra("s");
+
+        let estado = juego.estadoActual;
+        let letrasIncorrectas = estado.letrasIncorrectas;
+
+        expect(letrasIncorrectas).toEqual(["s"])
+    })
 
 
  })
