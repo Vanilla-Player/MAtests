@@ -20,7 +20,7 @@ import JuegoAhorcado from "../ahorcado/ahorcado.js";
     test("Ingresar palabra correcta",()=>{
 
         const intentoPalabra = "manteca";
-        const valido = juego.arriesgarPalabra(intentoPalabra);
+        const valido = juego.compararPalabra(intentoPalabra);
 
 
         expect(valido).toBeTruthy();
@@ -30,7 +30,7 @@ import JuegoAhorcado from "../ahorcado/ahorcado.js";
     test("Ingresar palabra incorrecta",()=>{
 
         const intentoPalabra = "keso";
-        const valido = juego.arriesgarPalabra(intentoPalabra);
+        const valido = juego.compararPalabra(intentoPalabra);
 
         expect(valido).toBeFalsy();
         
@@ -124,6 +124,80 @@ import JuegoAhorcado from "../ahorcado/ahorcado.js";
 
         expect(letrasIncorrectas).toEqual(["s"])
     })
+
+
+    test('La vida se actualiza en -1 cuando ingreso una letra incorrecta', ()=>{
+
+        juego.arriegarLetra("s")
+
+        let vidas = juego.vidas;
+
+        expect(vidas).toBe(2)
+
+    })
+
+    test('No dejar ingresar palabra al usuario si no tiene vidas', ()=>{
+
+        juego.arriegarLetra("s")
+        juego.arriegarLetra("s")
+        juego.arriegarLetra("s")
+        
+        juego.arriegarLetra("s")
+        
+
+        let estado = juego.estadoActual;
+        let letras = estado.letrasJugadas;
+
+        expect(letras).toEqual(["s","s","s"])
+
+    })
+
+    test('La vida se iguala a 0 cuando la palabra ingresada es incorrecta', ()=>{
+
+        juego.arriesgarPalabra("jabon")
+
+        let vidas = juego.vidas;
+
+        expect(vidas).toBe(0)
+
+    })
+
+
+    test(' Se tiene constancia de la ultima jugada del usuario', ()=>{
+
+        let estado = juego.estado;
+        let ultimaJugada = estado.ultimaJugada;
+
+        expect(ultimaJugada).toBeDefined();
+
+    })
+
+    test(' Si se ingreso una letra el ultimo movimiento del jugador fue una letra', ()=>{
+
+        juego.arriegarLetra("s")
+
+        let estado = juego.estado;
+        let ultimaJugada = estado.ultimaJugada;
+
+
+        expect(ultimaJugada).toEqual("letra")
+
+    })
+
+
+    test(' Si se ingreso una palabra el ultimo movimiento del jugador debera ser una palabra', ()=>{
+
+        juego.arriesgarPalabra("Jamon");
+
+        let estado = juego.estado;
+        let ultimaJugada = estado.ultimaJugada;
+
+        expect(ultimaJugada).toEqual("palabra");
+
+    })
+
+
+    
 
 
  })

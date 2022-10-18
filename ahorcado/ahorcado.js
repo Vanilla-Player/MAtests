@@ -7,6 +7,8 @@ class JuegoAhorcado{
             letrasJugadas: [],
             letrasIncorrectas: [],
             letrasCorrectas: [],
+            ultimaJugada: "",
+            
         };
     }
 
@@ -32,12 +34,17 @@ class JuegoAhorcado{
     
     arriegarLetra(letraIngresada) {
         let letra = letraIngresada.toLowerCase();
+
+        if(this.vidas === 0) return;
         
         this.estado.letrasJugadas.push(letra);
-        
+        this.estado.ultimaJugada = "letra";
+
+
         if (!this.contieneLetra(letra))
         {
             this.estado.letrasIncorrectas.push(letra)
+            this.vidas--;
         }
 
         this.remplazarLetraEnPalabraCorrecta(letra);
@@ -45,7 +52,22 @@ class JuegoAhorcado{
     }
 
     arriesgarPalabra(palabraIngresada){
-        return this.palabraAdivinar === palabraIngresada.toLowerCase()
+
+
+
+        if(this.vidas === 0) return;
+        
+        
+        this.estado.ultimaJugada = "palabra";
+
+
+        if(!this.compararPalabra(palabraIngresada)){
+            this.vidas = 0;
+            return
+        }
+
+
+
     }
 
     contieneLetra(letra) {
@@ -81,7 +103,9 @@ class JuegoAhorcado{
         return posiciones;
     }
 
-   
+    compararPalabra(palabraIngresada){
+    return this.palabraAdivinar === palabraIngresada.toLowerCase()
+   }
 
 
 
