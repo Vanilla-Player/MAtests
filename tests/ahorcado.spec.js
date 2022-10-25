@@ -3,7 +3,7 @@ import JuegoAhorcado from "../ahorcado/ahorcado.js";
 
  describe("Tests del ahorcado", ()=>{
 
-    let juego;
+    
 
     beforeEach(() => {
         juego = new JuegoAhorcado();
