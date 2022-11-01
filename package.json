@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:coverage": "e"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "cypress": "^10.11.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "jest": "^27.2.5",
     "supertest": "^6.1.6"
   }

@@ -26,9 +26,4 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test ahorcado
-    - run: |
-        # Replace `linux` below with the appropriate OS
-        # Options are `alpine`, `linux`, `macos`, `windows`
-        curl -Os https://uploader.codecov.io/latest/linux/codecov
-        chmod +x codecov
-        ./codecov -t ${CODECOV_TOKEN=d74ba42d-21e6-479f-93a9-f3d3a683dc5e}
+    - run: npm test ahorcado -- --coverage
