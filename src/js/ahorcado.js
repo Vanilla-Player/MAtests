@@ -1,7 +1,7 @@
 class JuegoAhorcado {
   constructor(params) {
     this.palabraAdivinar = "manteca";
-    this.vidas = 3;
+    this.vidas = 6;
     this.estado = {
       letrasJugadas: [],
       letrasIncorrectas: [],
@@ -15,7 +15,7 @@ class JuegoAhorcado {
   }
 
   get palabra() {
-    return this.palabraAdivinar;
+    return this.estado.letrasCorrectas;
   }
 
   get estadoActual() {
@@ -39,6 +39,7 @@ class JuegoAhorcado {
     if (!this.contieneLetra(letra)) {
       this.estado.letrasIncorrectas.push(letra);
       this.vidas--;
+      return;
     }
 
     this.remplazarLetraEnPalabraCorrecta(letra);
@@ -89,5 +90,3 @@ class JuegoAhorcado {
     return this.palabraAdivinar === palabraIngresada.toLowerCase();
   }
 }
-
-export default JuegoAhorcado;
