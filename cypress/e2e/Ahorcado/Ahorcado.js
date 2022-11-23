@@ -8,10 +8,6 @@ When("I click to the letter {string}", (letter) => {
   cy.get(`#${letter.toUpperCase()}`).click();
 });
 
-When("I enter a {string}", (word) => {
-  cy.get("#inpArriesgarPalabra").type(word);
-});
-
 Then("I see {string}", (text) => {
   cy.get("h1").contains(`${text}`);
 });
@@ -34,8 +30,7 @@ Then("I see attemps {string}", (number) => {
 });
 //Se bugeo entonces saque el "to" y me funciono jajaja
 
-When("I see ingrese palabra, I enter the word {string}", (word)=>{
+When("I see ingrese palabra, I enter the word {string}", (word) => {
   cy.get("#wordInput").type(`${word}`);
   cy.get("#wordInputButton").click();
-  
-})
+});

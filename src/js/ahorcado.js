@@ -1,4 +1,4 @@
-class JuegoAhorcado {
+export class JuegoAhorcado {
   constructor(params) {
     this.palabraAdivinar = "manteca";
     this.vidas = 6;

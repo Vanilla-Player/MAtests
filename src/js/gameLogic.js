@@ -1,4 +1,4 @@
-
+import { JuegoAhorcado } from "./ahorcado.js";
 
 const juego = new JuegoAhorcado();
 
@@ -13,8 +13,6 @@ function generaABC(a, z) {
     letra = String.fromCharCode(i).toUpperCase();
     document.getElementById("abcdario").innerHTML +=
       "<button value='" +
-      letra +
-      "' onclick='intento(\"" +
       letra +
       "\")' class='btn btn-outline-dark' id='" +
       letra +
@@ -40,23 +38,21 @@ function intento(letra) {
 }
 
 function intentoPalabra() {
-
   var input = document.getElementById("wordInput").value;
-  juego.arriesgarPalabra(input)
+  juego.arriesgarPalabra(input);
 
-  if(juego.vidas === 0){
+  if (juego.vidas === 0) {
     document.getElementById("intentos").innerHTML = juego.vidas;
-    for(let i = 0; i < 6 ; i++){
+    for (let i = 0; i < 6; i++) {
       let stickmanPart = document.getElementById(`${i}`);
       stickmanPart.classList.remove("invisible");
       stickmanPart.classList.add("visible");
     }
     check();
-    return
+    return;
   }
 
   wordGuess.innerHTML = juego.palabraAdivinar;
-
 }
 
 function check() {
@@ -78,20 +74,6 @@ function check() {
     Restart</a
   >. Give it a click if you like.`;
   }
-}
-
-function arriesgarPalabra() {
-  let palabra = document.getElementById("inpArriesgarPalabra").value;
-  juego.arriesgarPalabra(palabra);
-
-  if (!juego.compararPalabra(palabra)) {
-    showFullStickman();
-    document.getElementById("intentos").innerHTML = juego.vidas;
-    return;
-  }
-
-  wordGuess.innerHTML = juego.palabra.join("");
-  check();
 }
 
 function inicio() {
@@ -119,3 +101,17 @@ function showFullStickman() {
 
 // Iniciar
 window.onload = inicio();
+
+// Eventos globales del DOM
+document.getElementById("abcdario").addEventListener("click", function (event) {
+  let targetID = event.srcElement.id;
+  let btn = document.getElementById(targetID);
+  btn.addEventListener("click", intento(targetID));
+});
+
+document
+  .getElementById("wordInputButton")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    intentoPalabra();
+  });

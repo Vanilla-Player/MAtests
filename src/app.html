@@ -27,12 +27,23 @@
         Intentos restantes: <span class="btn btn-dark" id="intentos"></span>
       </h3>
 
-      
-      
       <div class="container d-grid row mx-auto">
-        <div class="input-group  mb-3">
-          <input type="text" class="form-control" placeholder="Ingrese Palabra" aria-label="Recipient's username" id="wordInput" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="wordInputButton" onclick="intentoPalabra()">Arriesgar</button>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ingrese Palabra"
+            aria-label="Recipient's username"
+            id="wordInput"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="wordInputButton"
+          >
+            Arriesgar
+          </button>
         </div>
         <div class="col" id="hangman">
           <svg
@@ -144,24 +155,6 @@
 
         <div id="cont" class="col my-auto">
           <div class="col-10 my-auto text-center" id="abcdario"></div>
-
-          <div class="input-group pt-4">
-            <input
-              type="text"
-              id="inpArriesgarPalabra"
-              class="form-control"
-              placeholder=""
-              aria-label="Example text with button addon"
-              aria-describedby="button-addon1"
-            />
-            <button
-              class="btn btn-outline-secondary"
-              type="button"
-              id="button-addon1"
-              onclick='arriesgarPalabra("sada")'
-            >
-              Button
-            </button>
           </div>
         </div>
       </div>
@@ -184,7 +177,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/ahorcado.js"></script>
-    <script src="./js/gameLogic.js"></script>
+    <script src="./js/ahorcado.js" type="module"></script>
+    <script src="./js/gameLogic.js" type="module"></script>
   </body>
 </html>
