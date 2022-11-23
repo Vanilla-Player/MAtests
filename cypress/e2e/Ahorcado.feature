@@ -20,7 +20,7 @@ Feature: Ahorcado
     Given I go to "http://localhost:5500/src/app.html"
     When I click to the letter "k"
     Then I see the input not changes "k"
-    Then I see attemps to "5"
+    Then I see attemps "5"
 
   Scenario: User lost the game
     Given I go to "http://localhost:5500/src/app.html"
@@ -31,7 +31,7 @@ Feature: Ahorcado
     When I click to the letter "q"
     When I click to the letter "h"
     Then I see the input changes "_______"
-    Then I see attemps to "0"
+    Then I see attemps "0"
 
 
  Scenario: User win the game with perfect score
@@ -55,3 +55,17 @@ Feature: Ahorcado
     Given I go to "http://localhost:5500/src/app.html"
     When I enter a "word"
     Then I see attemps to "0"
+    Then I see the input changes "manteca"
+    Then I see attemps "6"
+
+  Scenario: User loses entering a word
+    Given I go to "src/app.html"
+    When I see ingrese palabra, I enter the word "sabanas"
+    Then I see the input not changes "sabanas"
+    Then I see attemps "0"
+
+  Scenario: User wins entering a word
+    Given I go to "src/app.html"
+    When I see ingrese palabra, I enter the word "manteca"
+    Then I see the input changes "manteca"
+    Then I see attemps "6"
