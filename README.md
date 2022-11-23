@@ -10,17 +10,26 @@ cd MAtests
 npm install
 ```
 
-### Test
+### Tests
 
 ```
 npm test ahorcado
+npm cypress open
 ```
 ### clase{n}
 ```
 Contiene lo que se testeo en la clase numero n
 ```
-### Consigna
+### Consigna TP
 
 ```
-https://docs.google.com/presentation/d/1BrgjXk_dgIgu7FfEyhvNmP7ILq7hX1banopaSiEePj8/edit#slide=id.p
+https://docs.google.com/presentation/d/108u_1_C9uFbqc3j4EVqf2ufpZAk4IIgTTm1wlvpfkRs/edit#slide=id.ga1bc01f9a5_0_110
 ```
+
+### Apuntes
+
+```
+https://docs.google.com/presentation/d/101Gbe_nZA9USuc7Kddx2eKGHwnKs2AiHDO5hetlh9l8/edit#slide=id.g1736722dac3_0_56
+```
+
+
