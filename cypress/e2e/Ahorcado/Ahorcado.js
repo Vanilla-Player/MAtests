@@ -8,6 +8,10 @@ When("I click to the letter {string}", (letter) => {
   cy.get(`#${letter.toUpperCase()}`).click();
 });
 
+When("I enter a {string}", (word) => {
+  cy.get("#inpArriesgarPalabra").type(word);
+});
+
 Then("I see {string}", (text) => {
   cy.get("h1").contains(`${text}`);
 });

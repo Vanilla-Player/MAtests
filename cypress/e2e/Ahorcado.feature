@@ -34,14 +34,24 @@ Feature: Ahorcado
     Then I see attemps to "0"
 
 
- Scenario: User win the game
+ Scenario: User win the game with perfect score
     Given I go to "http://localhost:5500/src/app.html"
     When I click to the letter "m"
+    Then I see the input changes "m"
     When I click to the letter "a"
+    Then I see the input changes "a"
     When I click to the letter "n"
+    Then I see the input changes "n"
     When I click to the letter "t"
+    Then I see the input changes "t"
     When I click to the letter "e"
+    Then I see the input changes "e"
     When I click to the letter "c"
-    Then I see the input changes "manteca"
+    Then I see the input changes "c"
     Then I see attemps to "6"
 
+
+  Scenario: User try a word to guess and failed
+    Given I go to "http://localhost:5500/src/app.html"
+    When I enter a "word"
+    Then I see attemps to "0"

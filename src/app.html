@@ -17,8 +17,8 @@
     <div class="container-lg">
       <div id="alert" class="alert alert-warning invisible" role="alert">
         You lost the game!!!
-        <button href="#" class="alert-link" onclick="window.location.reload()">
-          Restart</button
+        <a href="#" class="alert-link" onclick="window.location.reload()">
+          Restart</a
         >. Give it a click if you like.
       </div>
 
@@ -135,7 +135,29 @@
             />
           </svg>
         </div>
-        <div class="col col-4 my-auto" id="abcdario"></div>
+
+        <div id="cont" class="col my-auto">
+          <div class="col-10 my-auto text-center" id="abcdario"></div>
+
+          <div class="input-group pt-4">
+            <input
+              type="text"
+              id="inpArriesgarPalabra"
+              class="form-control"
+              placeholder=""
+              aria-label="Example text with button addon"
+              aria-describedby="button-addon1"
+            />
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              id="button-addon1"
+              onclick='arriesgarPalabra("sada")'
+            >
+              Button
+            </button>
+          </div>
+        </div>
       </div>
 
       <h1 id="inpPalabra" class="text-center" style="letter-spacing: 6px"></h1>

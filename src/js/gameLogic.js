@@ -33,20 +33,43 @@ function intento(letra) {
   juego.arriegarLetra(letra);
   wordGuess.innerHTML = juego.palabra.join("");
   document.getElementById("intentos").innerHTML = juego.vidas;
-  if (!juego.contieneLetra(letra)) {
-    let stickmanPart = document.getElementById(`${juego.vidas}`);
-    stickmanPart.classList.remove("invisible");
-    stickmanPart.classList.add("visible");
-  }
+  showStickman(letra);
   check();
 }
 
 function check() {
+  let alert = document.getElementById("alert");
+
   if (juego.vidas === 0) {
-    let alert = document.getElementById("alert");
+    console.log("wtf");
     alert.classList.remove("invisible");
     alert.classList.add("visible");
   }
+
+  if (!juego.palabra.includes("_")) {
+    console.log("Win");
+    alert.classList.remove("alert-warning");
+    alert.classList.add("alert-success");
+    alert.classList.remove("invisible");
+    alert.classList.add("visible");
+    alert.innerHTML = `You won the game <a href="#" class="alert-link" onclick="window.location.reload()">
+    Restart</a
+  >. Give it a click if you like.`;
+  }
+}
+
+function arriesgarPalabra() {
+  let palabra = document.getElementById("inpArriesgarPalabra").value;
+  juego.arriesgarPalabra(palabra);
+
+  if (!juego.compararPalabra(palabra)) {
+    showFullStickman();
+    document.getElementById("intentos").innerHTML = juego.vidas;
+    return;
+  }
+
+  wordGuess.innerHTML = juego.palabra.join("");
+  check();
 }
 
 function inicio() {
@@ -54,6 +77,22 @@ function inicio() {
   wordGuess.innerHTML = juego.palabra.join("");
   generaABC("a", "z");
   document.getElementById("intentos").innerHTML = juego.vidas;
+}
+
+function showStickman(letra) {
+  if (!juego.contieneLetra(letra.toLowerCase())) {
+    const stickmanPart = document.getElementById(`${juego.vidas}`);
+    stickmanPart.classList.remove("invisible");
+    stickmanPart.classList.add("visible");
+  }
+}
+
+function showFullStickman() {
+  for (let i = 0; i < 7; i++) {
+    const stickmanPart = document.getElementById(i);
+    stickmanPart.classList.remove("invisible");
+    stickmanPart.classList.add("visible");
+  }
 }
 
 // Iniciar

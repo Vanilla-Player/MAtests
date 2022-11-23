@@ -54,6 +54,9 @@ class JuegoAhorcado {
       this.vidas = 0;
       return;
     }
+
+    this.estado.letrasCorrectas = [...palabraIngresada.split("")];
+    console.log(this.estado.letrasCorrectas);
   }
 
   contieneLetra(letra) {
