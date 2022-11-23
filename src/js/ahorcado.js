@@ -54,6 +54,7 @@ class JuegoAhorcado {
       this.vidas = 0;
       return;
     }
+
   }
 
   contieneLetra(letra) {
@@ -90,3 +91,5 @@ class JuegoAhorcado {
     return this.palabraAdivinar === palabraIngresada.toLowerCase();
   }
 }
+
+
