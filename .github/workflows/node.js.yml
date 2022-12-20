@@ -27,3 +27,4 @@ jobs:
     - run: npm run build --if-present
     - run: npm test ahorcado
     - run: npm test ahorcado -- --coverage
+    - run: npx cypress run
