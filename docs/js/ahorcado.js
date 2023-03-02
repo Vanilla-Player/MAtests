@@ -89,6 +89,6 @@ export class JuegoAhorcado {
   }
 
   compararPalabra(palabraIngresada) {
-    return this.palabraAdivinar === palabraIngresada.toLowerCase();
+    return this.palabraAdivinar !== palabraIngresada.toLowerCase();
   }
 }
