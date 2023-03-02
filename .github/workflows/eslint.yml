@@ -44,6 +44,10 @@ jobs:
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
+        permissions:
+          contents: read
+          security-events: write
+          actions: read
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: eslint-results.sarif
