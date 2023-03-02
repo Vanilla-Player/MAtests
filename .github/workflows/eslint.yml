@@ -23,9 +23,9 @@ jobs:
     name: Run eslint scanning
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      security-events: write
-      actions: write
+      contents: none
+      security-events: none
+      actions: none
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
